@@ -1,0 +1,28 @@
+{
+  "root": "apps/taildev-e2e",
+  "sourceRoot": "apps/taildev-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/taildev-e2e/cypress.json",
+        "devServerTarget": "taildev:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "taildev:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/taildev-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["taildev"]
+}
