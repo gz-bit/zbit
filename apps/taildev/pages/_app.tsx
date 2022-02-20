@@ -1,12 +1,12 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import './styles.css';
+//import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to taildev!</title>
+        <title>taildev</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />

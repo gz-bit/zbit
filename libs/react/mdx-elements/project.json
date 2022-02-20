@@ -1,0 +1,23 @@
+{
+  "root": "libs/react/mdx-elements",
+  "sourceRoot": "libs/react/mdx-elements/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/react/mdx-elements/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/react/mdx-elements"],
+      "options": {
+        "jestConfig": "libs/react/mdx-elements/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

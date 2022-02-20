@@ -1,0 +1,23 @@
+{
+  "root": "libs/js/mdjs",
+  "sourceRoot": "libs/js/mdjs/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/js/mdjs/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/js/mdjs"],
+      "options": {
+        "jestConfig": "libs/js/mdjs/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

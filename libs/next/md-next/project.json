@@ -1,0 +1,23 @@
+{
+  "root": "libs/next/md-next",
+  "sourceRoot": "libs/next/md-next/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/next/md-next/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/next/md-next"],
+      "options": {
+        "jestConfig": "libs/next/md-next/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

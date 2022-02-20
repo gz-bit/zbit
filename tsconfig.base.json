@@ -14,7 +14,16 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@zbit/js/mdjs": ["libs/js/mdjs/src/index.ts"],
+      "@zbit/markdown": ["libs/markdown/src/index.ts"],
+      "@zbit/md": ["libs/md/src/index.ts"],
+      "@zbit/mdx-elements": ["libs/mdx-elements/src/index.ts"],
+      "@zbit/next/md-next": ["libs/next/md-next/src/index.ts"],
+      "@zbit/react/mdx-elements": ["libs/react/mdx-elements/src/index.ts"],
+      "@zbit/react/mdx-elements/*": ["libs/react/mdx-elements/src/lib/*"],
+      "@zbit/shared/ui": ["libs/shared/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

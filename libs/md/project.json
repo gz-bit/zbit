@@ -1,0 +1,23 @@
+{
+  "root": "libs/md",
+  "sourceRoot": "libs/md/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/md/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/md"],
+      "options": {
+        "jestConfig": "libs/md/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

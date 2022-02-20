@@ -12,14 +12,17 @@
         "outputPath": "dist/apps/taildev"
       },
       "configurations": {
-        "production": {}
+        "production": {
+          
+        }
       }
     },
     "serve": {
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "taildev:build",
-        "dev": true
+        "dev": true,
+        "customServerPath": "../../tools/next-watch-server/next-watch-server.ts"
       },
       "configurations": {
         "production": {

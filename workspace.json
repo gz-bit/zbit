@@ -1,6 +1,14 @@
 {
   "version": 2,
   "projects": {
+    "js-mdjs": "libs/js/mdjs",
+    "markdown": "libs/markdown",
+    "md": "libs/md",
+    "mdx-elements": "libs/mdx-elements",
+    "next-md-next": "libs/next/md-next",
+    "react-mdx-elements": "libs/react/mdx-elements",
+    "shared-ui": "libs/shared/ui",
+    "storybook-e2e-ui-e2e": "apps/storybook-e2e/ui-e2e",
     "taildev": "apps/taildev",
     "taildev-e2e": "apps/taildev-e2e"
   }
