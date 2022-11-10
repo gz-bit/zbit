@@ -1,0 +1,28 @@
+{
+  "root": "apps/octopus-e2e",
+  "sourceRoot": "apps/octopus-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/octopus-e2e/cypress.json",
+        "devServerTarget": "octopus:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "octopus:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/octopus-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["octopus"]
+}

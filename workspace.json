@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "octopus": "apps/octopus",
+    "octopus-e2e": "apps/octopus-e2e"
+  }
+}
