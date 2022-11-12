@@ -1,5 +1,6 @@
 {
-  "root": "apps/octopus",
+  "name": "octopus",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/octopus",
   "projectType": "application",
   "targets": {
@@ -12,21 +13,30 @@
         "outputPath": "dist/apps/octopus"
       },
       "configurations": {
-        "production": {}
+        "production": {},
+        "development": {
+          "outputPath": "apps/octopus"
+        }
       }
     },
     "serve": {
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "octopus:build",
-        "dev": true
+        "dev": true,
+        "proxyConfig": "apps/octopus/proxy.conf.json"
       },
       "configurations": {
         "production": {
           "buildTarget": "octopus:build:production",
           "dev": false
+        },
+        "development": {
+          "buildTarget": "octopus:build:development",
+          "dev": true
         }
-      }
+      },
+      "defaultConfiguration": "development"
     },
     "export": {
       "executor": "@nrwl/next:export",
@@ -36,7 +46,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/octopus"],
+      "outputs": ["{workspaceRoot}/coverage/apps/octopus"],
       "options": {
         "jestConfig": "apps/octopus/jest.config.js",
         "passWithNoTests": true

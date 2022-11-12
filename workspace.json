@@ -1,7 +1,10 @@
 {
   "version": 2,
   "projects": {
+    "api": "apps/api",
     "octopus": "apps/octopus",
-    "octopus-e2e": "apps/octopus-e2e"
-  }
+    "octopus-e2e": "apps/octopus-e2e",
+    "octopus-shared": "libs/octopus/shared"
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

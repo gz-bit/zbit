@@ -21,12 +21,12 @@
   list-style: none;
   font-weight: 700;
   margin: 0;
-  padding: 0;
+  padding: 0 1rem;
   display: flex;
 }
-.main_header__item {
+.main-header__item {
   margin: 0 1rem;
-  padding: 0;
+  padding: 0 1rem;
 }
 .main_header__item a {
   text-decoration: none;
@@ -37,24 +37,3 @@
 .main_header__item a.active {
   color: blue;
 }
-.p404 {
-  text-align: center; 
-  padding: 100px 0;
-}
-
-.perm td {
-  padding-left: 20px;
-}
-
-.data th {
-  padding-left: 50px;
-  text-align: right;
-}
-.data td {
-  text-align: right;
-}
-.error {
-  margin-top: 15px;
-  color: red
-}
-

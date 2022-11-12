@@ -1,10 +1,10 @@
-import { NavHeader } from '../components';
+import { NavHeader } from '../../components'
 import styles from './index.module.css';
 
 export function Index() {
   return (
     <div className={styles.all}>
-      <NavHeader />
+      <NavHeader active="shop" />
 
       <main className={styles.main}>
         <h1>Welcome to THE Shop</h1>
