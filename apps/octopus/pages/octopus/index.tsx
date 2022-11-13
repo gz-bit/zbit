@@ -1,4 +1,4 @@
-//import { GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 import { useState } from 'react'
 import styles from '../index.module.css'
 import { NavHeader } from "../../components"
@@ -6,7 +6,7 @@ import { GoDataAndPrice, GoTariff } from '@zbit/octopus/shared'
 
 const Octopus = (props: GoTariff) => {
 
-  
+
   const api = "http://localhost:3333/octopus"
   /*
     const api = process.env.NX_OCTOPUS_API
@@ -23,20 +23,23 @@ const Octopus = (props: GoTariff) => {
     useTotal: '',
     priceLow: '',
     priceHigh: '',
+    priceDayGo: '',
     priceGo: '',
+    pricePowerFlex: '',
+    priceDayFlex: '',
     priceFlex: '',
     savedByGo: '',
     days: ''
   }
-  
+
 
   const [year, setYear] = useState(props.year)
   const [month, setMonth] = useState(props.month)
   const [day, setDay] = useState(props.day)
   const [lowStart, setLowStart] = useState(props.lowStart)
-  const [lowEnd, setLowEnd] = useState(props.lowEnd) 
+  const [lowEnd, setLowEnd] = useState(props.lowEnd)
   const [lowPrice, setLowPrice] = useState(props.lowPrice)
-  const [highPrice, setHighPrice] = useState(props.highPrice) 
+  const [highPrice, setHighPrice] = useState(props.highPrice)
   const [flexPrice, setFlexPreis] = useState(props.flexPrice)
   const [dayGo, setDayGo] = useState(props.dayGo)
   const [dayFlex, setDayFlex] = useState(props.dayFlex)
@@ -44,15 +47,15 @@ const Octopus = (props: GoTariff) => {
   const [errorMessage, setErrorMessage] = useState('')
 
   const getData = () => {
-    const newTariff: GoTariff = { 
-      year, month, day, lowStart, lowEnd, lowPrice, highPrice, flexPrice, dayGo, dayFlex 
+    const newTariff: GoTariff = {
+      year, month, day, lowStart, lowEnd, lowPrice, highPrice, flexPrice, dayGo, dayFlex
     }
 
     // save changes to tariff
     if (JSON.stringify(newTariff) !== JSON.stringify(props)) {
       saveTariff(newTariff)
     }
-    
+
     // get comsumption data from Octopus
     fetch(api + '/getData')
       .then(res => res.json())
@@ -73,83 +76,83 @@ const Octopus = (props: GoTariff) => {
         if (data.Error) {
           console.log(data)
           setErrorMessage('Error: Changed data have not been saved!')
-        } 
+        }
       })
       .catch(err => {
         setErrorMessage(err.toString())
       })
     ;
-   
+
   }
 
-  const errorOff = () => setErrorMessage('') 
-  
+  const errorOff = () => setErrorMessage('')
+
   return (
     <div className="all">
       <NavHeader active='octopus'/>
       <h2>Octopus</h2>
       <h4>Required Data</h4>
-      <table className="perm">   
+      <table className="perm">
         <tbody>
           <tr>
-            <td><label htmlFor="year">Year</label></td>  
-            <td><input type="number" min="2000" max="2999" id="year" name="year" 
-                  required value={year} 
-                  onChange={(e) => setYear(e.target.value)} 
+            <td><label htmlFor="year">Year</label></td>
+            <td><input type="number" min="2000" max="2999" id="year" name="year"
+                  required value={year}
+                  onChange={(e) => setYear(e.target.value)}
             /></td>
             <td><label htmlFor="month">Month</label></td>
-            <td><input type="number" min="00" max="12" id="month" name="month" 
-                  required value={month} 
+            <td><input type="number" min="00" max="12" id="month" name="month"
+                  required value={month}
                   onChange={(e) => setMonth(e.target.value)}
             /></td>
             <td><label htmlFor="day">Day</label></td>
-            <td><input type="number" min="00" max="31" id="day" name="day" 
-                  required value={day} 
+            <td><input type="number" min="00" max="31" id="day" name="day"
+                  required value={day}
                   onChange={(e) => setDay(e.target.value)}
             /></td>
-          </tr>    
+          </tr>
           <tr>
-            <td><label htmlFor="ops">Off Peak starts</label></td>  
-            <td><input type="time" id="ops" name="ops" 
-                  required value={lowStart} 
-                  onChange={(e) => setLowStart(e.target.value)} 
+            <td><label htmlFor="ops">Off Peak starts</label></td>
+            <td><input type="time" id="ops" name="ops"
+                  required value={lowStart}
+                  onChange={(e) => setLowStart(e.target.value)}
             /></td>
             <td><label htmlFor="ope">Off Peak ends</label></td>
-            <td><input type="time" id="ope" name="ope" 
-                  required value={lowEnd} 
+            <td><input type="time" id="ope" name="ope"
+                  required value={lowEnd}
                   onChange={(e) => setLowEnd(e.target.value)}
             /></td>
-          </tr>          
+          </tr>
           <tr>
             <td><label htmlFor="opprice">Off Peak price</label></td>
-            <td><input type="number" max="1" id="opprice" name="oprice" 
-                  required value={lowPrice} 
+            <td><input type="number" max="1" id="opprice" name="oprice"
+                  required value={lowPrice}
                   onChange={(e) => setLowPrice(e.target.value)}
             /></td>
-          
+
             <td><label htmlFor="pkprice">Peak price</label></td>
-            <td><input type="number" max="1" id="pkprice" name="pkprice" 
-                  required value={highPrice} 
+            <td><input type="number" max="1" id="pkprice" name="pkprice"
+                  required value={highPrice}
                   onChange={(e) => setHighPrice(e.target.value)}
             /></td>
           </tr>
           <tr>
             <td><label htmlFor="file">Flexible Tariff</label></td>
-            <td><input type="text" id="flprice" name="flprice" 
-                  required value={flexPrice} 
-                  onChange={(e) => setFlexPreis(e.target.value)}      
+            <td><input type="text" id="flprice" name="flprice"
+                  required value={flexPrice}
+                  onChange={(e) => setFlexPreis(e.target.value)}
             /></td>
           </tr>
           <tr>
             <td><label htmlFor="opprice">Per Day Flex</label></td>
-            <td><input type="number" max="1" id="dayflex" name="dayflex" 
-                  required value={dayFlex} 
+            <td><input type="number" max="1" id="dayflex" name="dayflex"
+                  required value={dayFlex}
                   onChange={(e) => setDayFlex(e.target.value)}
             /></td>
-          
+
             <td><label htmlFor="pkprice">Per Day Go</label></td>
-            <td><input type="number" max="1" id="daygo" name="daygo" 
-                  required value={dayGo} 
+            <td><input type="number" max="1" id="daygo" name="daygo"
+                  required value={dayGo}
                   onChange={(e) => setDayGo(e.target.value)}
             /></td>
           </tr>
@@ -159,13 +162,13 @@ const Octopus = (props: GoTariff) => {
       <br />
       <button onClick={getData}>Get Required Data</button>
 
-      {errorMessage 
+      {errorMessage
         ? <div className={styles.error}>
             {errorMessage}
             &nbsp;&nbsp;
             <button onClick={errorOff}>OK</button>
-          </div> 
-       :  <div><br /><br /></div>        
+          </div>
+       :  <div><br /><br /></div>
       }
 
       <div className={styles.data}>
@@ -179,7 +182,7 @@ const Octopus = (props: GoTariff) => {
               <th>Total</th>
             </tr>
           </thead>
-          <tbody>          
+          <tbody>
               <tr key='Datun'>
                 <td>Datum</td>
                 <td>{goData.date}</td>
@@ -202,7 +205,7 @@ const Octopus = (props: GoTariff) => {
                 <td>Days Go</td>
                 <td>{goData.days}</td>
                 <td>{dayGo}</td>
-                <td>{goData.priceDayGo}</td> 
+                <td>{goData.priceDayGo}</td>
               </tr>
               <tr key='Total Go'>
                 <td>Total Go</td>
@@ -238,20 +241,6 @@ const Octopus = (props: GoTariff) => {
 
         </table>
       </div>
-
-error: false,
-    message: '',
-    date: '', // 10/2022 or Year 2022
-    useLow: '',
-    useHigh: '',
-    useTotal: '',
-    priceLow: '',
-    priceHigh: '',
-    priceGo: '',
-    priceFlex: '',
-    savedByGo: '',
-    days: ''
-
     </div>
   )
 }
@@ -260,17 +249,17 @@ export default Octopus
 export const getStaticProps: GetStaticProps<GoTariff> = async (context) => {
 
     let tariff: GoTariff
-    await fetch('http://localhost:3333/octopus/getTariff', { 
-        method: 'GET',   
+    await fetch('http://localhost:3333/octopus/getTariff', {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' }
-    })    
+    })
       .then((res) => res.json())
       .then((data) => tariff = data)
     ;
 
     return { props: tariff }
   }
-;  
+;
 
 // let saved
 // fetch('http://localhost:3333/octopus/tariff')
@@ -279,6 +268,6 @@ export const getStaticProps: GetStaticProps<GoTariff> = async (context) => {
 //     saved = data
 //     console.log(data)
 //     console.log({ props: saved})
-//   })  
-// ;  
-  
+//   })
+// ;
+

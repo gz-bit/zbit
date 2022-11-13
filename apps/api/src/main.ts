@@ -24,7 +24,7 @@ app.use((req, res) => {
   res.status(404)
   const error_message = `${req.path} not a valid API path.`
   res.status(404).send({'Error': error_message})
-}) 
+})
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {

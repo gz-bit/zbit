@@ -4,10 +4,13 @@ export interface GoDataAndPrice {
   date: string,
   useLow: string,
   useHigh: string,
-  useTotal: string, 
+  useTotal: string,
   priceLow: string,
   priceHigh: string,
+  priceDayGo: string,
   priceGo: string,
+  pricePowerFlex: string,
+  priceDayFlex: string;
   priceFlex: string,
   savedByGo: string,
   days: string

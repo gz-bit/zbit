@@ -53,7 +53,7 @@ const getData = async () => {
     kwhLow: 0,
     kwhHigh: 0,
     kwhTotal: 0,
-    days: 0 
+    days: 0
   }
 
   const { year } = goTariff
@@ -119,7 +119,7 @@ const getData = async () => {
 
   const { error, message, date, kwhLow, kwhHigh, kwhTotal, days } = goData
   const { lowPrice, highPrice, flexPrice, dayGo, dayFlex } = goTariff
-  
+
   const useLow = kwhLow.toString()
   const useHigh = kwhHigh.toString()
   const useTotal = kwhTotal.toString()
@@ -129,13 +129,19 @@ const getData = async () => {
     currency: 'GBP'
   })
 
-  const pl = kwhLow * Number(lowPrice) 
+  const pl = kwhLow * Number(lowPrice)
   const priceLow = inPound.format(pl)
   const ph = kwhHigh * Number(highPrice)
   const priceHigh = inPound.format(ph)
-  const pg = pl + ph + days * Number(dayGo)
+  const pdg = days * Number(dayGo)
+  const priceDayGo = inPound.format(pdg)
+  const pg = pl + ph + pdg
   const priceGo = inPound.format(pg)
-  const pf = (kwhLow + kwhHigh) * Number(flexPrice) + days * Number(dayFlex) 
+  const ppf = (kwhLow + kwhHigh) * Number(flexPrice)
+  const pricePowerFlex = inPound.format(ppf)
+  const pdf = days * Number(dayFlex)
+  const priceDayFlex = inPound.format(pdf)
+  const pf = ppf + pdf
   const priceFlex = inPound.format(pf)
   const saved = pf -pg
   const savedByGo = inPound.format(saved)
@@ -144,8 +150,9 @@ const getData = async () => {
     error, message, date,
     useLow, useHigh, useTotal,
     priceLow, priceHigh, priceGo,
-    priceFlex, savedByGo, 
-    days: days.toString()
+    priceFlex, savedByGo,
+    days: days.toString(),
+    pricePowerFlex, priceDayFlex, priceDayGo
   }
 
   return goPrice
