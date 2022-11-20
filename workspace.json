@@ -4,7 +4,9 @@
     "api": "apps/api",
     "octopus": "apps/octopus",
     "octopus-e2e": "apps/octopus-e2e",
-    "octopus-shared": "libs/octopus/shared"
+    "octopus-shared": "libs/octopus/shared",
+    "shop": "apps/shop",
+    "shop-e2e": "apps/shop-e2e"
   },
   "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

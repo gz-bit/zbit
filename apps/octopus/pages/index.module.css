@@ -44,6 +44,7 @@
 
 .perm td {
   padding-left: 20px;
+  padding-right: 3px;
 }
 
 .data th {
@@ -57,4 +58,97 @@
   margin-top: 15px;
   color: red
 }
+.go {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
+.price {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  margin: 1rem;
+  border-radius: 3rem;
+  background-color: rgb(251, 229, 202);
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  margin: 1rem;
+  border-radius: 3rem;
+  background-color: rgb(195, 244, 188);
+}
+
+.row {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  
+}
+
+.label {
+  align-self: flex-start;
+  margin-left: 3rem;
+  width: 5rem;
+}
+.input {
+  align-self: flex-start;
+  margin-left: 1rem;
+  width: 5rem;
+}
+.button {
+  align-self: flex-start;
+  flex-grow: 0;
+  padding: 2rem;
+  font-size: large;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  background-color: aqua;
+}
+
+
+.data th {
+  padding-left: 50px;
+  text-align: right;
+  border: none;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  padding-right: 10px;
+}
+
+.data tr {
+  border: none;
+ 
+}
+
+.data td {
+  width: 7rem;
+  text-align: right;
+  border: none;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  padding-right: 10px;
+}
+
+.data table {
+  border: none;
+}
+
+.one {
+  background-color: rgb(88, 201, 118);
+}
+
+.two {
+  background-color: rgb(171, 215, 179);
+}
+
+.hidden {
+  visibility: hidden;
+}

@@ -45,6 +45,14 @@
 .perm td {
   padding-left: 20px;
 }
+
+.data th {
+  padding-left: 50px;
+  text-align: right;
+}
+.data td {
+  text-align: right;
+}
 .error {
   margin-top: 15px;
   color: red
